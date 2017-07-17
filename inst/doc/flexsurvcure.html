@@ -12,7 +12,7 @@
 
 <meta name="author" content="Jordan Amdahl" />
 
-<meta name="date" content="2017-05-13" />
+<meta name="date" content="2017-07-08" />
 
 <title>Parametric Cure Models</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Parametric Cure Models</h1>
 <h4 class="author"><em>Jordan Amdahl</em></h4>
-<h4 class="date"><em>2017-05-13</em></h4>
+<h4 class="date"><em>2017-07-08</em></h4>
 
 
 
@@ -113,17 +113,17 @@ cure_model &lt;-<span class="st"> </span><span class="kw">flexsurvcure</span>(<s
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(cure_model, <span class="dt">t=</span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">0</span>,<span class="dt">to=</span><span class="dv">3000</span>,<span class="dt">by=</span><span class="dv">1000</span>), <span class="dt">type=</span><span class="st">&quot;survival&quot;</span>, <span class="dt">tidy=</span>T)</code></pre></div>
 <pre><code>##    time        est        lcl       ucl  group
 ## 1     0 1.00000000 1.00000000 1.0000000   Good
-## 2  1000 0.83251996 0.78464335 0.8650449   Good
-## 3  2000 0.71313032 0.63815461 0.7719520   Good
-## 4  3000 0.67959584 0.59008250 0.7497190   Good
+## 2  1000 0.83251996 0.78654665 0.8673223   Good
+## 3  2000 0.71313032 0.64299023 0.7756640   Good
+## 4  3000 0.67959584 0.59811206 0.7528117   Good
 ## 5     0 1.00000000 1.00000000 1.0000000 Medium
-## 6  1000 0.68057306 0.62287710 0.7313783 Medium
-## 7  2000 0.45286672 0.38030653 0.5390319 Medium
-## 8  3000 0.38890796 0.30416936 0.4990362 Medium
+## 6  1000 0.68057306 0.62760309 0.7284440 Medium
+## 7  2000 0.45286672 0.38224836 0.5345392 Medium
+## 8  3000 0.38890796 0.30010242 0.4898543 Medium
 ## 9     0 1.00000000 1.00000000 1.0000000   Poor
-## 10 1000 0.51803653 0.47022550 0.6172437   Poor
-## 11 2000 0.17446456 0.13252063 0.3799866   Poor
-## 12 3000 0.07796116 0.03819733 0.3488807   Poor</code></pre>
+## 10 1000 0.51803653 0.46644666 0.6268596   Poor
+## 11 2000 0.17446456 0.13229987 0.4006528   Poor
+## 12 3000 0.07796116 0.04052532 0.3616864   Poor</code></pre>
 <p>More complex models may be fitted by adding covariates to the parametric distribution used to model the uncured individuals. This is done by passing a list of formula, named according to the parameters affected, through the anc argument:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cure_model_complex &lt;-<span class="st"> </span><span class="kw">flexsurvcure</span>(<span class="kw">Surv</span>(rectime, censrec)<span class="op">~</span>group, <span class="dt">data=</span>bc, <span class="dt">link=</span><span class="st">&quot;logistic&quot;</span>, <span class="dt">dist=</span><span class="st">&quot;weibullPH&quot;</span>, <span class="dt">mixture=</span>T, <span class="dt">anc=</span><span class="kw">list</span>(<span class="dt">scale=</span><span class="op">~</span>group))
 <span class="kw">print</span>(cure_model_complex)</code></pre></div>

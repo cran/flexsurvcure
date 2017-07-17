@@ -78,7 +78,7 @@ Hmixsurv = function(pfun, x, theta, ...) {
   pargs$lower.tail <- F
   pargs$log.p <- F
   pargs$log <- NULL
-  surv <- do.call(pmixsurv, append(list(pfun, x), pargs))
+  surv <- do.call(pmixsurv, append(list(pfun, x, theta), pargs))
   out <- -log(surv)
   if (!is.null(dots$log) && dots$log) {
     out <- log(out)
@@ -160,9 +160,9 @@ rmst_mixsurv = function(pfun, t, theta, ...) {
     rmst_generic,
     append(
       list(
-        function(...) pmixsurv(pfun, ...),
+        function(q, ...) pmixsurv(pfun, q, ...),
         t = t,
-        theta = theta
+        theta=theta
       ),
       args
     )
