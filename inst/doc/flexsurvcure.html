@@ -12,7 +12,7 @@
 
 <meta name="author" content="Jordan Amdahl" />
 
-<meta name="date" content="2022-06-17" />
+<meta name="date" content="2022-11-01" />
 
 <title>Parametric Cure Models</title>
 
@@ -334,7 +334,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Parametric Cure Models</h1>
 <h4 class="author">Jordan Amdahl</h4>
-<h4 class="date">2022-06-17</h4>
+<h4 class="date">2022-11-01</h4>
 
 
 
@@ -388,17 +388,17 @@ logistic link function for the cure fraction:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cure_model, <span class="at">t=</span><span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>,<span class="at">to=</span><span class="dv">3000</span>,<span class="at">by=</span><span class="dv">1000</span>), <span class="at">type=</span><span class="st">&quot;survival&quot;</span>, <span class="at">tidy=</span>T)</span></code></pre></div>
 <pre><code>##    time        est        lcl       ucl  group
 ## 1     0 1.00000000 1.00000000 1.0000000   Good
-## 2  1000 0.83251996 0.78590586 0.8686536   Good
-## 3  2000 0.71313032 0.64217262 0.7754018   Good
-## 4  3000 0.67959584 0.59455993 0.7504648   Good
+## 2  1000 0.83251996 0.78865790 0.8685350   Good
+## 3  2000 0.71313032 0.64476832 0.7770906   Good
+## 4  3000 0.67959584 0.60453748 0.7562965   Good
 ## 5     0 1.00000000 1.00000000 1.0000000 Medium
-## 6  1000 0.68057306 0.62601437 0.7225326 Medium
-## 7  2000 0.45286672 0.38019791 0.5324859 Medium
-## 8  3000 0.38890796 0.30776364 0.4897005 Medium
+## 6  1000 0.68057306 0.62450014 0.7301375 Medium
+## 7  2000 0.45286672 0.38259264 0.5312609 Medium
+## 8  3000 0.38890796 0.30637734 0.4867416 Medium
 ## 9     0 1.00000000 1.00000000 1.0000000   Poor
-## 10 1000 0.51803653 0.46884388 0.6241821   Poor
-## 11 2000 0.17446456 0.12850458 0.4003189   Poor
-## 12 3000 0.07796116 0.03626803 0.3713293   Poor</code></pre>
+## 10 1000 0.51803653 0.46954409 0.6370861   Poor
+## 11 2000 0.17446456 0.12979119 0.4138290   Poor
+## 12 3000 0.07796116 0.03881832 0.3724180   Poor</code></pre>
 <p>More complex models may be fitted by adding covariates to the
 parametric distribution used to model the uncured individuals. This is
 done by passing a list of formula, named according to the parameters

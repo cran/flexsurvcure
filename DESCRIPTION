@@ -1,7 +1,7 @@
 Package: flexsurvcure
 Title: Flexible Parametric Cure Models
-Version: 1.3.0
-Date: 2022-06-17
+Version: 1.3.1
+Date: 2022-11-1
 Authors@R: person("Jordan", "Amdahl", email = "jrdnmdhl@gmail.com", role = c("aut", "cre"))
 Maintainer: Jordan Amdahl <jrdnmdhl@gmail.com>
 Description: Flexible parametric mixture and non-mixture cure models for time-to-event data.
@@ -15,7 +15,7 @@ Encoding: UTF-8
 RoxygenNote: 7.2.0
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2022-06-17 05:30:21 UTC; jamdahl
+Packaged: 2022-11-01 21:06:53 UTC; jamdahl
 Author: Jordan Amdahl [aut, cre]
 Repository: CRAN
-Date/Publication: 2022-06-17 06:50:05 UTC
+Date/Publication: 2022-11-01 21:30:14 UTC
