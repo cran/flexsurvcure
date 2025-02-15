@@ -12,7 +12,7 @@ expand.inits.args <- function(inits) {
 ##' Mixture and non-mixture cure models using flexible base distributions
 ##' from the flexsurv package.
 ##'
-##' This function works as a wrapper around \code{\link{flexsurvreg}} by
+##' This function works as a wrapper around \code{\link[flexsurv:flexsurvreg]{flexsurv::flexsurvreg()}} by
 ##' dynamically constructing a custom distribution using wrappers to the
 ##' pdf and cdf functions.
 ##'
@@ -27,7 +27,7 @@ expand.inits.args <- function(inits) {
 ##'
 ##' @param formula A formula expression in conventional R linear modeling
 ##' syntax. The response must be a survival object as returned by the
-##' \code{\link{Surv}} function, and any covariates are given on the right-hand
+##' \code{\link[survival:Surv]{survival::Surv()}} function, and any covariates are given on the right-hand
 ##' side.  For example,
 ##'
 ##' \code{Surv(time, dead) ~ age + sex}
@@ -55,9 +55,9 @@ expand.inits.args <- function(inits) {
 ##' functions that might be used in formulae (such as \code{I()}, or
 ##' \code{factor()}), then those functions will not work in the formula.  A
 ##' safer way to model covariates on ancillary parameters is through the
-##' \code{anc} argument to \code{\link{flexsurvreg}}.
+##' \code{anc} argument to \code{\link[flexsurv:flexsurvreg]{flexsurv::flexsurvreg}}.
 ##'
-##' \code{\link{survreg}} users should also note that the function
+##' \code{\link[survival:survreg]{survival::survreg()}} users should also note that the function
 ##' \code{strata()} is ignored, so that any covariates surrounded by
 ##' \code{strata()} are applied to the location parameter.
 ##' @param data A data frame in which to find variables supplied in
@@ -75,7 +75,7 @@ expand.inits.args <- function(inits) {
 ##' @param link A string representing the link function to use for estimation of the
 ##' cure fraction.  Defaults to "logistic", but also supports "loglog", "probit", and "identity".
 ##' @param mixture optional TRUE/FALSE to specify whether a mixture model should be fitted.  Defaults to TRUE.
-##' @param ... other arguments to be passed to \code{\link{flexsurvreg}}.
+##' @param ... other arguments to be passed to \code{\link[flexsurv:flexsurvreg]{flexsurv::flexsurvreg}}.
 ##' @examples
 ##' flexsurvcure(Surv(rectime,censrec)~group, data=bc, dist="weibull", anc=list(scale=~group))
 ##' flexsurvcure(Surv(rectime,censrec)~group, data=bc, dist="lnorm", mixture = FALSE)
@@ -171,7 +171,7 @@ flexsurvcure <- function(formula, data, weights, bhazard, subset, dist, na.actio
       d =    function(x, ...) dnmixsurv(dfun, pfun, x, ...),
       H =    function(x, ...) Hnmixsurv(pfun, x, ...),
       h =    function(x, ...) hnmixsurv(dfun, x, ...),
-      q =    function(p, ...) qnmixsurv(pfun, p, ...),
+      q =    function(p, ...) qnmixsurv(qfun, p, ...),
       r =    function(n, ...) rnmixsurv(qfun, n, ...),
       mean = function(...)    mean_nmixsurv(pfun, ...),
       rmst = function(t, ...) rmst_nmixsurv(pfun, t, ...)
